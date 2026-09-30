@@ -1,0 +1,652 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #0d0f14;
+    color: #f5f5f5;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    padding: 22px 42px 18px;
+
+    border-bottom: 1px solid #252a35;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin-top: 5px;
+
+    color: #8d95a5;
+
+    font-size: 15px;
+}
+
+
+/* ================= WORKSPACE ================= */
+
+.workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: 22px;
+
+    padding: 28px 42px;
+
+    height: calc(100vh - 96px);
+    min-height: 650px;
+}
+
+.panel {
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #171a21;
+
+    border: 1px solid #292f3b;
+    border-radius: 12px;
+}
+
+.panel-header {
+    flex: 0 0 auto;
+
+    padding: 20px 22px;
+
+    border-bottom: 1px solid #292f3b;
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+
+/* ================= SOURCE ================= */
+
+.source-content {
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding: 18px;
+}
+
+.input-mode {
+    display: flex;
+
+    gap: 8px;
+}
+
+.mode-button {
+    padding: 9px 14px;
+
+    background: #20242d;
+    color: #aeb5c2;
+
+    border: 1px solid #303643;
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.mode-button:hover {
+    color: #fff;
+}
+
+.mode-button.active {
+    background: #5b5bf7;
+
+    border-color: #5b5bf7;
+
+    color: #fff;
+}
+
+
+/* ================= UPLOAD ================= */
+
+.upload-area {
+    display: none;
+
+    padding: 22px;
+
+    text-align: center;
+
+    border: 1px dashed #454c5b;
+    border-radius: 9px;
+
+    color: #929aaa;
+
+    cursor: pointer;
+}
+
+.upload-area.active {
+    display: block;
+}
+
+.upload-area:hover {
+    border-color: #6868ff;
+
+    color: #c8caff;
+}
+
+.upload-title {
+    margin-bottom: 6px;
+
+    font-size: 14px;
+}
+
+#fileInput {
+    display: none;
+}
+
+.file-name {
+    color: #737b8b;
+
+    font-size: 13px;
+}
+
+
+/* ================= FILENAME ================= */
+
+.filename-input {
+    width: 100%;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 14px;
+
+    background: #0e1015;
+
+    border: 1px solid #303643;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    transition: border-color 0.2s ease;
+}
+
+.filename-input:hover {
+    border-color: #454c5b;
+}
+
+.filename-input:focus-within {
+    border-color: #6262ff;
+}
+
+.filename-input label {
+    flex-shrink: 0;
+
+    margin-right: 12px;
+
+    color: #8d95a5;
+
+    font-size: 14px;
+}
+
+#filenameInput {
+    flex: 1;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent !important;
+
+    border: none !important;
+    outline: none !important;
+
+    color: #e8eaf0 !important;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 14px;
+
+    box-shadow: none !important;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#filenameInput::placeholder {
+    color: #555d6d;
+}
+
+#filenameInput:disabled {
+    color: #737b8b !important;
+
+    cursor: not-allowed;
+}
+
+
+/* ================= CODE INPUT ================= */
+
+#codeInput {
+    flex: 1;
+    min-height: 0;
+
+    width: 100%;
+
+    resize: none;
+
+    padding: 18px;
+
+    background: #0c0e13;
+    color: #e8eaf0;
+
+    border: 1px solid #303643;
+    border-radius: 8px;
+
+    outline: none;
+
+    font-family: Consolas, "Courier New", monospace;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#codeInput:focus {
+    border-color: #6262ff;
+}
+
+.source-actions {
+    flex: 0 0 auto;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-weight: 600;
+}
+
+button:disabled {
+    opacity: 0.4;
+
+    cursor: not-allowed;
+}
+
+.primary-button {
+    padding: 12px 20px;
+
+    background: #5b5bf7;
+    color: #fff;
+
+    border-radius: 7px;
+}
+
+.primary-button:hover:not(:disabled) {
+    background: #6969ff;
+}
+
+.fix-button {
+    padding: 12px 20px;
+
+    background: #16a34a;
+    color: #fff;
+
+    border-radius: 7px;
+}
+
+.fix-button:hover:not(:disabled) {
+    background: #1bb653;
+}
+
+.secondary-button {
+    padding: 10px 16px;
+
+    background: #252a34;
+    color: #dce0e8;
+
+    border: 1px solid #353b48;
+    border-radius: 7px;
+}
+
+.secondary-button:hover {
+    background: #2d333f;
+}
+
+
+/* ================= TABS ================= */
+
+.results-tabs {
+    flex: 0 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    border-bottom: 1px solid #292f3b;
+}
+
+.tab {
+    padding: 16px;
+
+    background: transparent;
+    color: #8d95a5;
+
+    border-bottom: 2px solid transparent;
+
+    font-size: 15px;
+}
+
+.tab:hover:not(:disabled) {
+    color: #fff;
+}
+
+.tab.active {
+    color: #fff;
+
+    border-bottom-color: #6262ff;
+}
+
+
+/* ================= RESULTS ================= */
+
+.results-content {
+    flex: 1;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 18px;
+}
+
+.result-container {
+    width: 100%;
+
+    display: block;
+}
+
+.tab-content {
+    display: none;
+
+    width: 100%;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.empty-state {
+    width: 100%;
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    color: #737b8b;
+
+    text-align: center;
+}
+
+
+/* ================= REVIEW ================= */
+
+.issue-card {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 12px 0;
+    padding: 16px;
+
+    background: #1d212a;
+
+    border: 1px solid #303643;
+    border-radius: 9px;
+}
+
+.issue-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 10px;
+}
+
+.issue-type {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.severity {
+    flex: 0 0 auto;
+
+    padding: 4px 9px;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.severity.CRITICAL {
+    background: #7f1d1d;
+
+    color: #fecaca;
+}
+
+.severity.HIGH {
+    background: #991b1b;
+
+    color: #fecaca;
+}
+
+.severity.MEDIUM {
+    background: #92400e;
+
+    color: #fed7aa;
+}
+
+.severity.LOW {
+    background: #334155;
+
+    color: #dbeafe;
+}
+
+.issue-message {
+    margin-bottom: 10px;
+
+    color: #c9ced8;
+
+    line-height: 1.5;
+}
+
+.issue-meta {
+    margin-bottom: 8px;
+
+    color: #8d95a5;
+
+    font-size: 13px;
+}
+
+.suggestion {
+    color: #e0e3e9;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.summary-box {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 16px;
+    padding: 15px;
+
+    background: #10251a;
+
+    border: 1px solid #21633b;
+    border-radius: 8px;
+
+    color: #b8f3c9;
+
+    line-height: 1.5;
+}
+
+.summary-title {
+    margin-bottom: 6px;
+
+    font-weight: 700;
+}
+
+.review-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    width: 100%;
+
+    margin-top: 16px;
+}
+
+
+/* ================= FIX ================= */
+
+.fix-section {
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+.section-title {
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.code-output {
+    width: 100%;
+    max-height: 430px;
+
+    padding: 18px;
+
+    background: #0b0d12;
+
+    border: 1px solid #303643;
+    border-radius: 8px;
+
+    color: #e8eaf0;
+
+    white-space: pre-wrap;
+
+    overflow: auto;
+
+    font-family: Consolas, "Courier New", monospace;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.fix-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 12px;
+}
+
+.change-summary {
+    width: 100%;
+
+    padding: 15px;
+
+    background: #10251a;
+
+    border: 1px solid #21633b;
+    border-radius: 8px;
+
+    color: #b8f3c9;
+
+    line-height: 1.5;
+}
+
+
+/* ================= LOADING / ERROR ================= */
+
+.loading {
+    width: 100%;
+
+    padding: 50px 20px;
+
+    color: #aeb5c2;
+
+    text-align: center;
+}
+
+.error {
+    width: 100%;
+
+    padding: 14px;
+
+    background: #351719;
+
+    border: 1px solid #7f292d;
+    border-radius: 8px;
+
+    color: #ffb4b8;
+
+    line-height: 1.5;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .workspace {
+        grid-template-columns: 1fr;
+
+        height: auto;
+
+        min-height: auto;
+
+        padding: 20px;
+    }
+
+    .panel {
+        min-height: 600px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+}

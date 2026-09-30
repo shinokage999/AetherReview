@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AetherReview</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        AetherReview
+    </div>
+
+    <div class="subtitle">
+        AI Code Review &amp; Automated Fix Engine
+    </div>
+
+</header>
+
+
+<main class="workspace">
+
+
+    <!-- ================= SOURCE CODE ================= -->
+
+    <section class="panel source-panel">
+
+        <div class="panel-header">
+            Source Code
+        </div>
+
+
+        <div class="source-content">
+
+
+            <!-- INPUT MODE -->
+
+            <div class="input-mode">
+
+                <button
+                    id="pasteModeButton"
+                    class="mode-button active"
+                    type="button">
+
+                    Paste Code
+
+                </button>
+
+
+                <button
+                    id="uploadModeButton"
+                    class="mode-button"
+                    type="button">
+
+                    Upload File
+
+                </button>
+
+            </div>
+
+
+            <!-- FILE UPLOAD -->
+
+            <div
+                id="uploadArea"
+                class="upload-area">
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    accept=".java,.py,.js,.ts,.jsx,.tsx,.cpp,.c,.cs,.go,.kt,.kts,.sql,.html,.css,.json,.xml,.php,.rb"
+                >
+
+                <div class="upload-title">
+                    Click to upload a source file
+                </div>
+
+                <div
+                    id="selectedFile"
+                    class="file-name">
+
+                    No file selected
+
+                </div>
+
+            </div>
+
+
+            <!-- FILENAME -->
+
+            <div class="filename-input">
+
+                <label for="filenameInput">
+                    Filename
+                </label>
+
+                <input
+                    type="text"
+                    id="filenameInput"
+                    value="Untitled.java"
+                    placeholder="LoginService.java"
+                >
+
+            </div>
+
+            <!-- SOURCE CODE -->
+
+            <textarea
+                id="codeInput"
+                spellcheck="false"
+                placeholder="Paste your source code here..."
+            ></textarea>
+
+
+            <!-- REVIEW BUTTON -->
+
+            <div class="source-actions">
+
+                <button
+                    id="reviewButton"
+                    class="primary-button"
+                    type="button">
+
+                    Review Code
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= ANALYSIS ================= -->
+
+    <section class="panel analysis-panel">
+
+        <div class="panel-header">
+            Analysis
+        </div>
+
+
+        <!-- TABS -->
+
+        <div class="results-tabs">
+
+            <button
+                id="reviewTab"
+                class="tab active"
+                type="button">
+
+                Review
+
+            </button>
+
+
+            <button
+                id="fixTab"
+                class="tab"
+                type="button"
+                disabled>
+
+                Fix
+
+            </button>
+
+        </div>
+
+
+        <!-- RESULTS -->
+
+        <div class="results-content">
+
+
+            <!-- REVIEW -->
+
+            <div
+                id="reviewContent"
+                class="tab-content active">
+
+                <div
+                    id="reviewResult"
+                    class="result-container">
+
+                    <div class="empty-state">
+
+                        Review your code to see detected issues.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FIX -->
+
+            <div
+                id="fixContent"
+                class="tab-content">
+
+                <div
+                    id="fixResult"
+                    class="result-container">
+
+                    <div class="empty-state">
+
+                        Generate a fix from the Review tab.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
